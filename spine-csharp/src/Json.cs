@@ -205,10 +205,16 @@ namespace SharpJson {
 				return null;
 			}
 
-			if (builder != null)
+			if (builder != null) {
+				if(idx > 0)
+				{
+					builder.Append(stringBuffer, 0, idx);
+				}
 				return builder.ToString();
-			else
+			}
+			else {
 				return new string(stringBuffer, 0, idx);
+			}
 		}
 
 		string GetNumberString () {
